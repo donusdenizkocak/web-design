@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Card from '../components/Card';
 import data from '../data/data';
 
@@ -27,8 +28,11 @@ export const Home = () => {
         </div>
       </section>
       <div className="footer-top">
-       {<Card/>}
+       {data.map((item)=>{
+        return <Card key={item.id} item={item}/>
+       }) }
       </div>
+      <Outlet/>
     </div>
   )
 }
